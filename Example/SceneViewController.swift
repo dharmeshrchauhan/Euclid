@@ -27,7 +27,7 @@ class SceneViewController: UIViewController {
 
         // create some geometry using Euclid
         let start = CFAbsoluteTimeGetCurrent()
-        let cube = Mesh.cube(size: 1.5, material: UIColor.red)
+        let cube = Mesh.cube(size: Vector(0.075, 1.5, 1.5), material: UIColor.lightGray)
         
         /*
         let points = [Euclid.PathPoint(Euclid.Vector(0.027999856950000002, -0.23366689682000003, 0.25247043371000005), isCurved: false),
@@ -93,6 +93,7 @@ class SceneViewController: UIViewController {
 
         // configure the SCNView
         let scnView = view as! SCNView
+        scnView.debugOptions = .showWireframe
         scnView.scene = scene
         scnView.autoenablesDefaultLighting = true
         scnView.allowsCameraControl = true
