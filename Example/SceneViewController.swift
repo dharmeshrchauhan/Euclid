@@ -29,6 +29,7 @@ class SceneViewController: UIViewController {
         let start = CFAbsoluteTimeGetCurrent()
         let cube = Mesh.cube(size: 1.5, material: UIColor.red)
         
+        /*
         let points = [Euclid.PathPoint(Euclid.Vector(0.027999856950000002, -0.23366689682000003, 0.25247043371000005), isCurved: false),
                       Euclid.PathPoint(Euclid.Vector(0.027999856950000002, -0.23587751389000003, 0.25150114298000004), isCurved: false),
                       Euclid.PathPoint(Euclid.Vector(0.027999856950000002, -0.25046777725, 0.24962288141000002), isCurved: false),
@@ -61,6 +62,18 @@ class SceneViewController: UIViewController {
                       Euclid.PathPoint(Euclid.Vector(0.027999856950000002, -0.026386857030000002, 0.08578860760000001), isCurved: false),
                       Euclid.PathPoint(Euclid.Vector(0.027999856950000002, -0.026163816450000002, 0.08761739731000001), isCurved: false),
                       Euclid.PathPoint(Euclid.Vector(0.027999856950000002, -0.23366689682000003, 0.25247043371000005), isCurved: false)]
+        */
+        
+        //minimal set of points to reproduce problem
+        let points = [
+            Euclid.PathPoint(Euclid.Vector(0.027999856950000002, -0.24907588959000002, -0.09345978498000002), isCurved: false),
+            Euclid.PathPoint(Euclid.Vector(0.027999856950000002, -0.23319780827000003, -0.09222000837000001), isCurved: false),
+            Euclid.PathPoint(Euclid.Vector(0.027999856950000002, -0.22417795658000003, -0.09205657244000001), isCurved: false),
+            Euclid.PathPoint(Euclid.Vector(0.027999856950000002, -0.06903898716000001, -0.015104055400000002), isCurved: false),
+            Euclid.PathPoint(Euclid.Vector(0.027999856950000002, -0.06388723850000001, -0.011164188390000001), isCurved: false),
+            Euclid.PathPoint(Euclid.Vector(0.027999856950000002, -0.058735370640000006, -0.007225632670000001), isCurved: false)
+        ]
+        
         let path = Path(points).closed()
         let mesh = cube.subtract(Mesh.extrude(path, depth: 1.6, faces: .default, material: UIColor.green))
         //let mesh = Mesh.fill(path, faces: .default, material: UIColor.green)
